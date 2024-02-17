@@ -1,0 +1,662 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Tools &mdash; MIR_AUVSimulator 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Piloting" href="piloting.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MIR_AUVSimulator
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="init.html">Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Inputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forces.html">Mecanic Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="noise.html">Noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="piloting.html">Piloting</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MIR_AUVSimulator</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Tools</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/tools.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tools">
+<h1>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h1>
+<p>All functions use as tools to simplified calculs</p>
+<span class="target" id="module-Tools.JsonLab"></span><dl class="mat function">
+<dt id="Tools.JsonLab.loadjson">
+<code class="sig-name descname"><span class="pre">loadjson</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">fname</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Tools.JsonLab.loadjson" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p>data=loadjson(fname,opt)</p></li>
+<li><p>data=loadjson(fname,’param1’,value1,’param2’,value2,…)</p></li>
+</ul>
+</dd>
+</dl>
+<p>parse a JSON (JavaScript Object Notation) file or string</p>
+<dl class="simple">
+<dt>authors:</dt><dd><ul class="simple">
+<li><p>Qianqian Fang (fangq&lt;at&gt; nmr.mgh.harvard.edu) date: 2011/09/09</p></li>
+<li><p>Nedialko Krouchev: <a class="reference external" href="http://www.mathworks.com/matlabcentral/fileexchange/25713">http://www.mathworks.com/matlabcentral/fileexchange/25713</a> date: 2009/11/02</p></li>
+<li><p>François Glineur: <a class="reference external" href="http://www.mathworks.com/matlabcentral/fileexchange/23393">http://www.mathworks.com/matlabcentral/fileexchange/23393</a> date: 2009/03/22</p></li>
+<li><p>Joel Feenstra: <a class="reference external" href="http://www.mathworks.com/matlabcentral/fileexchange/20565">http://www.mathworks.com/matlabcentral/fileexchange/20565</a> date: 2008/07/03</p></li>
+</ul>
+</dd>
+</dl>
+<p>Id: loadjson.m 415 2013-10-07 16:38:31Z fangq</p>
+<dl class="simple">
+<dt>input:</dt><dd><dl class="simple">
+<dt>fname: input file name, if fname contains “{}” or “[]”, fname</dt><dd><p>will be interpreted as a JSON string</p>
+</dd>
+<dt>opt: a struct to store parsing options, opt can be replaced by</dt><dd><p>a list of (‘param’,value) pairs. The param string is equivallent
+to a field in opt.</p>
+</dd>
+</dl>
+</dd>
+<dt>output:</dt><dd><dl class="simple">
+<dt>dat: a cell array, where {…} blocks are converted into cell arrays,</dt><dd><p>and […] are converted to arrays</p>
+</dd>
+</dl>
+</dd>
+<dt>license:</dt><dd><p>BSD license, see LICENSE_BSD.txt files for details</p>
+</dd>
+</dl>
+<p>– this function is part of jsonlab toolbox (<a class="reference external" href="http://iso2mesh.sf.net/cgi-bin/index.cgi?jsonlab">http://iso2mesh.sf.net/cgi-bin/index.cgi?jsonlab</a>)</p>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Tools.JsonLab.savejson">
+<code class="sig-name descname"><span class="pre">savejson</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">rootname</span></em>, <em class="sig-param"><span class="pre">obj</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Tools.JsonLab.savejson" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p>json=savejson(rootname,obj,filename)</p></li>
+<li><p>json=savejson(rootname,obj,opt)</p></li>
+<li><p>json=savejson(rootname,obj,’param1’,value1,’param2’,value2,…)</p></li>
+</ul>
+</dd>
+</dl>
+<p>convert a MATLAB object (cell, struct or array) into a JSON (JavaScript
+Object Notation) string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>Qianqian Fang (fangq&lt;at&gt; nmr.mgh.harvard.edu) created on 2011/09/09</p>
+</dd>
+</dl>
+<p>Id: savejson.m 415 2013-10-07 16:38:31Z fangq</p>
+<dl>
+<dt>input:</dt><dd><ul>
+<li><p>rootname: name of the root-object, if set to ‘’, will use variable name</p></li>
+<li><p>obj: a MATLAB object (array, cell, cell array, struct, struct array)</p></li>
+<li><p>filename: a string for the file name to save the output JSON data</p></li>
+<li><p>opt: a struct for additional options, use [] if all use default
+opt can have the following fields (first in [.|.] is the default)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>opt.FileName [‘’| string ]: a file name to save the output JSON data</p></li>
+<li><p>opt.FloatFormat [‘%.10g’| string ]: format to show each numeric element
+of a 1D/2D array;</p></li>
+<li><p>opt.ArrayIndent [1|0]: if 1, output explicit data array with
+precedent indentation; if 0, no indentation</p></li>
+<li><p>opt.ArrayToStruct[0|1]: when set to 0, savejson outputs 1D/2D
+array in JSON array format; if sets to 1, an
+array will be shown as a struct with fields
+“_ArrayType_”, “_ArraySize_” and “_ArrayData_”; for
+sparse arrays, the non-zero elements will be
+saved to _ArrayData_ field in triplet-format i.e.
+(ix,iy,val) and “_ArrayIsSparse_” will be added
+with a value of 1; for a complex array, the
+_ArrayData_ array will include two columns
+(4 for sparse) to record the real and imaginary
+parts, and also “_ArrayIsComplex_”:1 is added.</p></li>
+<li><p>opt.ParseLogical [0|1]: if this is set to 1, logical array elem
+will use true/false rather than 1/0.</p></li>
+<li><p>opt.NoRowBracket [1|0]: if this is set to 1, arrays with a single
+numerical element will be shown without a square
+bracket, unless it is the root object; if 0, square
+brackets are forced for any numerical arrays.</p></li>
+<li><p>opt.ForceRootName [0|1]: when set to 1 and rootname is empty, savejson
+will use the name of the passed obj variable as the
+root object name; if obj is an expression and
+does not have a name, ‘root’ will be used; if this
+is set to 0 and rootname is empty, the root level
+will be merged down to the lower level.</p></li>
+<li><p>opt.Inf [‘”$1_Inf_”’| string ]: a customized regular expression pattern
+to represent +/-Inf. The matched pattern is ‘([-+]*)Inf’
+and $1 represents the sign. For those who want to use
+1e999 to represent Inf, they can set opt.Inf to ‘$11e999’</p></li>
+<li><p>opt.NaN [‘“_NaN_”’| string ]: a customized regular expression pattern
+to represent NaN</p></li>
+<li><p>opt.JSONP [‘’| string ]: to generate a JSONP output (JSON with padding),
+for example, if opt.JSON=’foo’, the JSON data is
+wrapped inside a function call as ‘foo();’</p></li>
+<li><p>opt.UnpackHex [1|0]: conver the 0x[hex code] output by loadjson
+back to the string form opt can be replaced by a list of
+(‘param’,value) pairs. The param string is equivallent to a field in opt.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+<dt>output:</dt><dd><p>json: a string in the JSON format (see <a class="reference external" href="http://json.org">http://json.org</a>)</p>
+</dd>
+</dl>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">=</span><span class="nb">struct</span><span class="p">(</span><span class="s">&#39;node&#39;</span><span class="p">,[</span><span class="mi">1</span><span class="w">  </span><span class="mi">9</span><span class="w">  </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">2</span><span class="w"> </span><span class="s">1</span><span class="w"> </span><span class="s">1.2],</span><span class="w"> </span><span class="s">&#39;elem&#39;,[9</span><span class="w"> </span><span class="s">1</span><span class="p">;</span><span class="n">1</span><span class="w"> </span><span class="s">2</span><span class="p">;</span><span class="n">2</span><span class="w"> </span><span class="s">3],...</span><span class="w"></span>
+<span class="w">         </span><span class="s">&#39;face&#39;</span><span class="p">,[</span><span class="mi">9</span><span class="w"> </span><span class="mi">01</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">1</span><span class="w"> </span><span class="s">2</span><span class="w"> </span><span class="s">3</span><span class="p">;</span><span class="w"> </span><span class="nb">NaN</span><span class="p">,</span><span class="nb">Inf</span><span class="p">,</span><span class="o">-</span><span class="nb">Inf</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;author&#39;</span><span class="p">,</span><span class="s">&#39;FangQ&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">savejson</span><span class="p">(</span><span class="s">&#39;mesh&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span><span class="w"></span>
+<span class="n">savejson</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="s">&#39;ArrayIndent&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s">&#39;FloatFormat&#39;</span><span class="p">,</span><span class="s">&#39;\t%.5g&#39;</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>license:</dt><dd><p>BSD license, see LICENSE_BSD.txt files for details</p>
+</dd>
+</dl>
+<p>– this function is part of jsonlab toolbox (<a class="reference external" href="http://iso2mesh.sf.net/cgi-bin/index.cgi?jsonlab">http://iso2mesh.sf.net/cgi-bin/index.cgi?jsonlab</a>)</p>
+</dd></dl>
+
+<span class="target" id="module-Tools"></span><dl class="mat function">
+<dt id="Tools.ActuatorSetpoint">
+<code class="sig-name descname"><span class="pre">ActuatorSetpoint</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">inputs</span></em>, <em class="sig-param"><span class="pre">Bmax_rad</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Tools.ActuatorSetpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>compute of actuator setpoints based on setpoints at level different axes as well as presence og flags of different control surfaces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>outputs = ActuatorSetpoint(inputs, parameters)</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>inputs</strong> – inputs struct with Ac_rad, Gc_rad and BARc_rad</p></li>
+<li><p><strong>Bmax_rad</strong> – Max angle available by control helms</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>outputs - output struct with B1c_rad, B2c_rad, B3c_rad and B4c_rad</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Tools.DiffAngle">
+<code class="sig-name descname"><span class="pre">DiffAngle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">a2</span></em>, <em class="sig-param"><span class="pre">a1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Tools.DiffAngle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Angle difference. Takes into account angles mod(2 pi).
+Used in Kalman filters to avoid singularities when comparing two angles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>Y = DiffAngle(a2,a1)</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>a2</strong> – First angle (rad)</p></li>
+<li><p><strong>a1</strong> – Second angle (rad)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>(a2 - a1) mod 2*pi</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Tools.EcaF_Integrate">
+<code class="sig-name descname"><span class="pre">EcaF_Integrate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">previousIntegral</span></em>, <em class="sig-param"><span class="pre">previousValue</span></em>, <em class="sig-param"><span class="pre">currentValue</span></em>, <em class="sig-param"><span class="pre">timeStep</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Tools.EcaF_Integrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integration of a value according to the previous integral the difference at the previous step the difference at the current step (timeStep)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>integral = EcaF_Integrate(previousIntegral, previousValue,currentValue,timeStep)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt>
+<code class="sig-name descname"><span class="pre">EcaF_Integrate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">previousIntegral</span></em>, <em class="sig-param"><span class="pre">previousValue</span></em>, <em class="sig-param"><span class="pre">currentValue</span></em>, <em class="sig-param"><span class="pre">timeStep</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Integration of a value according to the previous integral the difference at the previous step the difference at the current step (timeStep)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>integral = EcaF_Integrate(previousIntegral, previousValue,currentValue,timeStep)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Tools.eulerang">
+<code class="sig-name descname"><span class="pre">eulerang</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">phi</span></em>, <em class="sig-param"><span class="pre">theta</span></em>, <em class="sig-param"><span class="pre">psi</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Tools.eulerang" title="Permalink to this definition">¶</a></dt>
+<dd><p>[J,J1,J2] = EULERANG(phi,theta,psi) computes the Euler angle
+transformation matrices</p>
+<p>Author:   Thor I. Fossen
+Date:     14th June 2001
+Revisions:
+________________________________________________________________</p>
+<p>MSS GNC is a Matlab toolbox for guidance, navigation and control.
+The toolbox is part of the Marine Systems Simulator (MSS).</p>
+<p>Copyright (C) 2008 Thor I. Fossen and Tristan Perez</p>
+<p>This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.</p>
+<p>This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public License
+along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p>
+<p>E-mail: <a class="reference external" href="mailto:contact&#37;&#52;&#48;marinecontrol&#46;org">contact<span>&#64;</span>marinecontrol<span>&#46;</span>org</a>
+URL:    &lt;<a class="reference external" href="http://www.marinecontrol.org">http://www.marinecontrol.org</a>&gt;</p>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Tools.MatRot">
+<code class="sig-name descname"><span class="pre">MatRot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">phi</span></em>, <em class="sig-param"><span class="pre">theta</span></em>, <em class="sig-param"><span class="pre">psi</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Tools.MatRot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matrice de rotation du repère veh -&gt; repère R0</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>[ Mat ] = MatRot( phi,theta,psi )</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>phi</strong> – (rad) Angle de roulis</p></li>
+<li><p><strong>theta</strong> – (rad) Angle d’assiette</p></li>
+<li><p><strong>psi</strong> – (rad) Angle de cap</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Mat : Matrice 3x3 de rotation repère veh -&gt; repère R0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Tools.Mod2Pi">
+<code class="sig-name descname"><span class="pre">Mod2Pi</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">angleIn</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Tools.Mod2Pi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fonction modulo 2pi</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>angleOut = Mod2Pi(angleIn)</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>angleIn</strong> – angle (rad)</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>angleOut : -pi &lt;= angleIn &lt;= pi</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Tools.SkewMatrix">
+<code class="sig-name descname"><span class="pre">SkewMatrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">input_matrix</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Tools.SkewMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the anti-symmetric matrix of the input vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>skew_matrix = Fonct_Skew_Matrix(input_matrix)</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>input_matrix</strong> – matrix to skew</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>skew_matrix - skew of the input matrix</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-Tools.FMINSEARCHBND"></span><dl class="mat function">
+<dt id="Tools.FMINSEARCHBND.fminsearchbnd">
+<code class="sig-name descname"><span class="pre">fminsearchbnd</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">fun</span></em>, <em class="sig-param"><span class="pre">x0</span></em>, <em class="sig-param"><span class="pre">LB</span></em>, <em class="sig-param"><span class="pre">UB</span></em>, <em class="sig-param"><span class="pre">options</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Tools.FMINSEARCHBND.fminsearchbnd" title="Permalink to this definition">¶</a></dt>
+<dd><p>FMINSEARCHBND: FMINSEARCH, but with bound constraints by transformation</p>
+<p>usage: x=FMINSEARCHBND(fun,x0)
+usage: x=FMINSEARCHBND(fun,x0,LB)
+usage: x=FMINSEARCHBND(fun,x0,LB,UB)
+usage: x=FMINSEARCHBND(fun,x0,LB,UB,options)
+usage: x=FMINSEARCHBND(fun,x0,LB,UB,options,p1,p2,…)
+usage: [x,fval,exitflag,output]=FMINSEARCHBND(fun,x0,…)</p>
+<dl class="field-list">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p>fun, x0, options - see the help for FMINSEARCH</p>
+<p>LB - lower bound vector or array, must be the same size as x0</p>
+<blockquote>
+<div><p>If no lower bounds exist for one of the variables, then
+supply -inf for that variable.</p>
+<p>If no lower bounds at all, then LB may be left empty.</p>
+<p>Variables may be fixed in value by setting the corresponding
+lower and upper bounds to exactly the same value.</p>
+</div></blockquote>
+<p>UB - upper bound vector or array, must be the same size as x0</p>
+<blockquote>
+<div><p>If no upper bounds exist for one of the variables, then
+supply +inf for that variable.</p>
+<p>If no upper bounds at all, then UB may be left empty.</p>
+<p>Variables may be fixed in value by setting the corresponding
+lower and upper bounds to exactly the same value.</p>
+</div></blockquote>
+</dd>
+<dt class="field-even">Notes</dt>
+<dd class="field-even"><p>If options is supplied, then TolX will apply to the transformed
+variables. All other FMINSEARCH parameters should be unaffected.</p>
+<p>Variables which are constrained by both a lower and an upper
+bound will use a sin transformation. Those constrained by
+only a lower or an upper bound will use a quadratic
+transformation, and unconstrained variables will be left alone.</p>
+<p>Variables may be fixed by setting their respective bounds equal.
+In this case, the problem will be reduced in size for FMINSEARCH.</p>
+<p>The bounds are inclusive inequalities, which admit the
+boundary values themselves, but will not permit ANY function
+evaluations outside the bounds. These constraints are strictly
+followed.</p>
+<p>If your problem has an EXCLUSIVE (strict) constraint which will
+not admit evaluation at the bound itself, then you must provide
+a slightly offset bound. An example of this is a function which
+contains the log of one of its parameters. If you constrain the
+variable to have a lower bound of zero, then FMINSEARCHBND may
+try to evaluate the function exactly at zero.</p>
+</dd>
+<dt class="field-odd">Example usage</dt>
+<dd class="field-odd"><p>rosen = &#64;(x) (1-x(1)).^2 + 105*(x(2)-x(1).^2).^2;</p>
+</dd>
+</dl>
+<p>fminsearch(rosen,[3 3])     % unconstrained
+ans = 1.0000    1.0000</p>
+<p>fminsearchbnd(rosen,[3 3],[2 2],[])     % constrained
+ans = 2.0000    4.0000</p>
+<p>See test_main.m for other examples of use.
+See also: fminsearch, fminspleas</p>
+<p>Author: John D’Errico
+E-mail: <a class="reference external" href="mailto:woodchips&#37;&#52;&#48;rochester&#46;rr&#46;com">woodchips<span>&#64;</span>rochester<span>&#46;</span>rr<span>&#46;</span>com</a>
+Release: 4
+Release date: 7/23/06</p>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Tools.FMINSEARCHBND.fminsearchcon">
+<code class="sig-name descname"><span class="pre">fminsearchcon</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">fun</span></em>, <em class="sig-param"><span class="pre">x0</span></em>, <em class="sig-param"><span class="pre">LB</span></em>, <em class="sig-param"><span class="pre">UB</span></em>, <em class="sig-param"><span class="pre">A</span></em>, <em class="sig-param"><span class="pre">b</span></em>, <em class="sig-param"><span class="pre">nonlcon</span></em>, <em class="sig-param"><span class="pre">options</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Tools.FMINSEARCHBND.fminsearchcon" title="Permalink to this definition">¶</a></dt>
+<dd><p>FMINSEARCHCON: Extension of FMINSEARCHBND with general inequality constraints</p>
+<p>usage: x=FMINSEARCHCON(fun,x0)
+usage: x=FMINSEARCHCON(fun,x0,LB)
+usage: x=FMINSEARCHCON(fun,x0,LB,UB)
+usage: x=FMINSEARCHCON(fun,x0,LB,UB,A,b)
+usage: x=FMINSEARCHCON(fun,x0,LB,UB,A,b,nonlcon)
+usage: x=FMINSEARCHCON(fun,x0,LB,UB,A,b,nonlcon,options)
+usage: x=FMINSEARCHCON(fun,x0,LB,UB,A,b,nonlcon,options,p1,p2,…)
+usage: [x,fval,exitflag,output]=FMINSEARCHCON(fun,x0,…)</p>
+<dl class="field-list">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><p>fun, x0, options - see the help for FMINSEARCH</p>
+<blockquote>
+<div><p>x0 MUST be a feasible point for the linear and nonlinear
+inequality constraints. If it is not inside the bounds
+then it will be moved to the nearest bound. If x0 is
+infeasible for the general constraints, then an error will
+be returned.</p>
+</div></blockquote>
+<p>LB - lower bound vector or array, must be the same size as x0</p>
+<blockquote>
+<div><p>If no lower bounds exist for one of the variables, then
+supply -inf for that variable.</p>
+<p>If no lower bounds at all, then LB may be left empty.</p>
+<p>Variables may be fixed in value by setting the corresponding
+lower and upper bounds to exactly the same value.</p>
+</div></blockquote>
+<p>UB - upper bound vector or array, must be the same size as x0</p>
+<blockquote>
+<div><p>If no upper bounds exist for one of the variables, then
+supply +inf for that variable.</p>
+<p>If no upper bounds at all, then UB may be left empty.</p>
+<p>Variables may be fixed in value by setting the corresponding
+lower and upper bounds to exactly the same value.</p>
+</div></blockquote>
+<dl>
+<dt>A,b - (OPTIONAL) Linear inequality constraint array and right</dt><dd><p>hand side vector. (Note: these constraints were chosen to
+be consistent with those of fmincon.)</p>
+<p>A*x &lt;= b</p>
+</dd>
+<dt>nonlcon - (OPTIONAL) general nonlinear inequality constraints</dt><dd><p>NONLCON must return a set of general inequality constraints.
+These will be enforced such that nonlcon is always &lt;= 0.</p>
+<p>nonlcon(x) &lt;= 0</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Notes</dt>
+<dd class="field-even"><p>If options is supplied, then TolX will apply to the transformed
+variables. All other FMINSEARCH parameters should be unaffected.</p>
+<p>Variables which are constrained by both a lower and an upper
+bound will use a sin transformation. Those constrained by
+only a lower or an upper bound will use a quadratic
+transformation, and unconstrained variables will be left alone.</p>
+<p>Variables may be fixed by setting their respective bounds equal.
+In this case, the problem will be reduced in size for FMINSEARCH.</p>
+<p>The bounds are inclusive inequalities, which admit the
+boundary values themselves, but will not permit ANY function
+evaluations outside the bounds. These constraints are strictly
+followed.</p>
+<p>If your problem has an EXCLUSIVE (strict) constraint which will
+not admit evaluation at the bound itself, then you must provide
+a slightly offset bound. An example of this is a function which
+contains the log of one of its parameters. If you constrain the
+variable to have a lower bound of zero, then FMINSEARCHCON may
+try to evaluate the function exactly at zero.</p>
+<p>Inequality constraints are enforced with an implicit penalty
+function approach. But the constraints are tested before
+any function evaluations are ever done, so the actual objective
+function is NEVER evaluated outside of the feasible region.</p>
+</dd>
+<dt class="field-odd">Example usage</dt>
+<dd class="field-odd"><p>rosen = &#64;(x) (1-x(1)).^2 + 105*(x(2)-x(1).^2).^2;</p>
+</dd>
+</dl>
+<p>Fully unconstrained problem
+fminsearchcon(rosen,[3 3])
+ans = 1.0000    1.0000</p>
+<p>lower bound constrained
+fminsearchcon(rosen,[3 3],[2 2],[])
+ans = 2.0000    4.0000</p>
+<p>x(2) fixed at 3
+fminsearchcon(rosen,[3 3],[-inf 3],[inf,3])
+ans = 1.7314    3.0000</p>
+<p>simple linear inequality: x(1) + x(2) &lt;= 1
+fminsearchcon(rosen,[0 0],[],[],[1 1],.5)
+ans = 0.6187    0.3813</p>
+<p>general nonlinear inequality: sqrt(x(1)^2 + x(2)^2) &lt;= 1
+fminsearchcon(rosen,[0 0],[],[],[],[],&#64;(x) norm(x)-1)
+ans = 0.78633   0.61778</p>
+<p>Of course, any combination of the above constraints is
+also possible.</p>
+<p>See test_main.m for other examples of use.
+See also: fminsearch, fminspleas, fminsearchbnd</p>
+<p>Author: John D’Errico
+E-mail: <a class="reference external" href="mailto:woodchips&#37;&#52;&#48;rochester&#46;rr&#46;com">woodchips<span>&#64;</span>rochester<span>&#46;</span>rr<span>&#46;</span>com</a>
+Release: 1.0
+Release date: 12/16/06</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="piloting.html" class="btn btn-neutral float-left" title="Piloting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, ECA ROBOTICS. (DHAISNE Aurelien &lt;dhaisne.a@ecagroup.com&gt;).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

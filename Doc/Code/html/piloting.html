@@ -1,0 +1,402 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Piloting &mdash; MIR_AUVSimulator 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tools" href="tools.html" />
+    <link rel="prev" title="Noise" href="noise.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MIR_AUVSimulator
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="init.html">Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Inputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forces.html">Mecanic Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="noise.html">Noise</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Piloting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-Piloting.Forward">Forward Speed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-Piloting.Horizontal">Horizontal Plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-Piloting.Vertical">Vertical Plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-Piloting.Roll">Roll Plan</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MIR_AUVSimulator</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Piloting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/piloting.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="piloting">
+<h1>Piloting<a class="headerlink" href="#piloting" title="Permalink to this headline">¶</a></h1>
+<p>All control command law</p>
+<div class="section" id="module-Piloting.Forward">
+<span id="forward-speed"></span><h2>Forward Speed<a class="headerlink" href="#module-Piloting.Forward" title="Permalink to this headline">¶</a></h2>
+<dl class="mat function">
+<dt id="Piloting.Forward.InitPilotForwardSpeed">
+<code class="sig-name descname"><span class="pre">InitPilotForwardSpeed</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Piloting.Forward.InitPilotForwardSpeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialization of the integral for piloting with respect to water with propeller actuator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>memory = InitPilotForwardSpeedRPM()</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Piloting.Forward.PilotForwardSpeed">
+<code class="sig-name descname"><span class="pre">PilotForwardSpeed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in</span></em>, <em class="sig-param"><span class="pre">memory</span></em>, <em class="sig-param"><span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Piloting.Forward.PilotForwardSpeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forward speed control with respect to water with propeller speed actuator</p>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Piloting.Forward.UpdatePilotForwardSpeedMemory">
+<code class="sig-name descname"><span class="pre">UpdatePilotForwardSpeedMemory</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in</span></em>, <em class="sig-param"><span class="pre">memory</span></em>, <em class="sig-param"><span class="pre">param</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Piloting.Forward.UpdatePilotForwardSpeedMemory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the memory of the integral</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>memory = UpdatePilotForwardSpeedMemory(in,memory,param)</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>in</strong> – Required inputs for updating the memory</p></li>
+<li><p><strong>memory</strong> – Piloting memory</p></li>
+<li><p><strong>param</strong> – Parameters required for full term memory</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>memory - memory on integral terms</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-Piloting.Horizontal">
+<span id="horizontal-plan"></span><h2>Horizontal Plan<a class="headerlink" href="#module-Piloting.Horizontal" title="Permalink to this headline">¶</a></h2>
+<dl class="mat function">
+<dt id="Piloting.Horizontal.InitPilotHeading">
+<code class="sig-name descname"><span class="pre">InitPilotHeading</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Piloting.Horizontal.InitPilotHeading" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialization of the memory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>memory = InitPilotHeading()</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Piloting.Horizontal.PilotHeading">
+<code class="sig-name descname"><span class="pre">PilotHeading</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in</span></em>, <em class="sig-param"><span class="pre">memory</span></em>, <em class="sig-param"><span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Piloting.Horizontal.PilotHeading" title="Permalink to this definition">¶</a></dt>
+<dd><p>Heading piloting</p>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Piloting.Horizontal.UpdatePilotHeadingMemory">
+<code class="sig-name descname"><span class="pre">UpdatePilotHeadingMemory</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in</span></em>, <em class="sig-param"><span class="pre">memory</span></em>, <em class="sig-param"><span class="pre">param</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Piloting.Horizontal.UpdatePilotHeadingMemory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the memory of the integral</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>memory = UpdatePilotHeadingMemory(in,memory,param)</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>in</strong> – Required inputs for updating the memory</p></li>
+<li><p><strong>memory</strong> – Piloting memory</p></li>
+<li><p><strong>param</strong> – Parameters required for full term memory</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>memory - memory on integral terms</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-Piloting.Vertical">
+<span id="vertical-plan"></span><h2>Vertical Plan<a class="headerlink" href="#module-Piloting.Vertical" title="Permalink to this headline">¶</a></h2>
+<dl class="mat function">
+<dt id="Piloting.Vertical.InitPilotDepth">
+<code class="sig-name descname"><span class="pre">InitPilotDepth</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Piloting.Vertical.InitPilotDepth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialization of the memory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>memory = InitPilotDepth()</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Piloting.Vertical.PilotDepth">
+<code class="sig-name descname"><span class="pre">PilotDepth</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in</span></em>, <em class="sig-param"><span class="pre">memory</span></em>, <em class="sig-param"><span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Piloting.Vertical.PilotDepth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Depth piloting</p>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Piloting.Vertical.PilotPitch">
+<code class="sig-name descname"><span class="pre">PilotPitch</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in</span></em>, <em class="sig-param"><span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Piloting.Vertical.PilotPitch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pitch piloting</p>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Piloting.Vertical.UpdatePilotDepthMemory">
+<code class="sig-name descname"><span class="pre">UpdatePilotDepthMemory</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in</span></em>, <em class="sig-param"><span class="pre">memory</span></em>, <em class="sig-param"><span class="pre">param</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Piloting.Vertical.UpdatePilotDepthMemory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the memory of the integral</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>memory = UpdatePilotDepthMemory(in,memory,param)</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>in</strong> – Required inputs for updating the memory</p></li>
+<li><p><strong>memory</strong> – Piloting memory</p></li>
+<li><p><strong>param</strong> – Parameters required for full term memory</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>memory - memory on integral terms</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-Piloting.Roll">
+<span id="roll-plan"></span><h2>Roll Plan<a class="headerlink" href="#module-Piloting.Roll" title="Permalink to this headline">¶</a></h2>
+<dl class="mat function">
+<dt id="Piloting.Roll.InitPilotRoll">
+<code class="sig-name descname"><span class="pre">InitPilotRoll</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Piloting.Roll.InitPilotRoll" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialization of the memory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>memory = InitPilotRoll()</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Piloting.Roll.PilotRoll">
+<code class="sig-name descname"><span class="pre">PilotRoll</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in</span></em>, <em class="sig-param"><span class="pre">memory</span></em>, <em class="sig-param"><span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Piloting.Roll.PilotRoll" title="Permalink to this definition">¶</a></dt>
+<dd><p>Roll piloting</p>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Piloting.Roll.UpdatePilotRollMemory">
+<code class="sig-name descname"><span class="pre">UpdatePilotRollMemory</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in</span></em>, <em class="sig-param"><span class="pre">memory</span></em>, <em class="sig-param"><span class="pre">param</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Piloting.Roll.UpdatePilotRollMemory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the memory of the integral</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>memory = UpdatePilotRollMemory(in,memory,param)</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>in</strong> – Required inputs for updating the memory</p></li>
+<li><p><strong>memory</strong> – Piloting memory</p></li>
+<li><p><strong>param</strong> – Parameters required for full term memory</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>memory - memory on integral terms</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tools.html" class="btn btn-neutral float-right" title="Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="noise.html" class="btn btn-neutral float-left" title="Noise" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, ECA ROBOTICS. (DHAISNE Aurelien &lt;dhaisne.a@ecagroup.com&gt;).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

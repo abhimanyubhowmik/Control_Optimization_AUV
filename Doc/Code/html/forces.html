@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Mecanic Forces &mdash; MIR_AUVSimulator 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Noise" href="noise.html" />
+    <link rel="prev" title="Inputs" href="inputs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MIR_AUVSimulator
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="init.html">Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Inputs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mecanic Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="noise.html">Noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="piloting.html">Piloting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MIR_AUVSimulator</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Mecanic Forces</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/forces.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mecanic-forces">
+<h1>Mecanic Forces<a class="headerlink" href="#mecanic-forces" title="Permalink to this headline">¶</a></h1>
+<p>These functions compute all the forces that apply on an AUV</p>
+<span class="target" id="module-Forces"></span><dl class="mat function">
+<dt id="Forces.ComputeCoriolisForces">
+<code class="sig-name descname"><span class="pre">ComputeCoriolisForces</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">speed_ms</span></em>, <em class="sig-param"><span class="pre">angular_speed_rads</span></em>, <em class="sig-param"><span class="pre">gravity_center_m</span></em>, <em class="sig-param"><span class="pre">mass_kg</span></em>, <em class="sig-param"><span class="pre">inertia_matrix</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Forces.ComputeCoriolisForces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute coriolis forces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>coriolis_forces = ComputeCoriolisForces(speed_ms,angular_speed_rads ,…gravity_center_m, mass_kg,inertia_matrix)</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>speed_ms</strong> – speed vector [u,v,w] in m/s</p></li>
+<li><p><strong>angular_speed_rads</strong> – angular speed vector [p,q,r] in rad/s</p></li>
+<li><p><strong>gravity_center_m</strong> – Position of the center of gravity in relation to the center
+of expression of the forces</p></li>
+<li><p><strong>mass_kg</strong> – vehicule mass in Kg</p></li>
+<li><p><strong>inertia_matrix</strong> – Vehicle inertia matrix 3x3</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>coriolis_forces - vector of coriolis forces [Fx,Fy,Fz,Mx,My,Mz]</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Forces.ComputeHelmsForce">
+<code class="sig-name descname"><span class="pre">ComputeHelmsForce</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">parameters</span></em>, <em class="sig-param"><span class="pre">virtual_helms</span></em>, <em class="sig-param"><span class="pre">speed_ms</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Forces.ComputeHelmsForce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute helms forces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>helms_forces = ComputeHelmsForce(parameters,virtual_helms,speed_ms)</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>parameters</strong> – helms parameters of the vehicule</p></li>
+<li><p><strong>virtual_helms</strong> – virtual helms angle [BAR,A,G] in rad</p></li>
+<li><p><strong>speed_ms</strong> – speed vector [u,v,w] in m/s</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>coriolis_forces - vector of coriolis forces [Fx,Fy,Fz,Mx,My,Mz]</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Forces.ComputeHydrodynamicForce">
+<code class="sig-name descname"><span class="pre">ComputeHydrodynamicForce</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">speed_ms</span></em>, <em class="sig-param"><span class="pre">angular_speed_rads</span></em>, <em class="sig-param"><span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Forces.ComputeHydrodynamicForce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute hydrodynamic forces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>hydrodynamic_forces = ComputeHydrodynamicForce(speed_ms,angular_speed_rads,parameters)</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>speed_ms</strong> – speed vector [u,v,w] in m/s</p></li>
+<li><p><strong>angular_speed_rads</strong> – angular speed vector [p,q,r] in rad/s</p></li>
+<li><p><strong>parameters</strong> – hydrodynamic parameters of the vehicule</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>hydrodynamic_forces - vector of hydrodynamic forces [Fx,Fy,Fz,Mx,My,Mz]</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Forces.ComputePropellerForce">
+<code class="sig-name descname"><span class="pre">ComputePropellerForce</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">parameters</span></em>, <em class="sig-param"><span class="pre">nc_saturated_trmin</span></em>, <em class="sig-param"><span class="pre">speed_ms</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Forces.ComputePropellerForce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute thruster(=Propeller) forces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>thruster_forces = ComputeHelmsForce(parameters,virtual_helms,speed_ms)</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>parameters</strong> – helms parameters of the vehicule</p></li>
+<li><p><strong>nc_saturated_trmin</strong> – RPM command , saturated, in tr/min</p></li>
+<li><p><strong>speed_ms</strong> – speed vector [u,v,w] in m/s</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>thruster_forces - vector of thruster forces [Fx,Fy,Fz,Mx,My,Mz]</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Note</dt>
+<dd class="field-even"><p>As Fossen in 4.1 : ROV Equations of Motion, 4.1.1 : Truster Model, p94-p95</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Forces.ComputeRestoringForce">
+<code class="sig-name descname"><span class="pre">ComputeRestoringForce</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">EulerAngles</span></em>, <em class="sig-param"><span class="pre">gravity_center_m</span></em>, <em class="sig-param"><span class="pre">buoyancy_center_m</span></em>, <em class="sig-param"><span class="pre">mass_kg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Forces.ComputeRestoringForce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute coriolis forces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>coriolis_forces = ComputeCoriolisForces(speed_ms,angular_speed_rads ,…gravity_center_m, mass_kg,inertia_matrix)</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>EulerAngles</strong> – [rall,pitch,yaw] in rad</p></li>
+<li><p><strong>gravity_center_m</strong> – Position of the center of gravity in relation to the center
+of expression of the forces</p></li>
+<li><p><strong>buoyancy_center_m</strong> – Position of the center of buoyancy in relation to the center
+of expression of the forces</p></li>
+<li><p><strong>mass_kg</strong> – vehicule mass in Kg</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>restoring_forces - vector of restoring forces [Fx,Fy,Fz,Mx,My,Mz]</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt id="Forces.GetInverseVehicleMassMatrix">
+<code class="sig-name descname"><span class="pre">GetInverseVehicleMassMatrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Forces.GetInverseVehicleMassMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the inverse of the vehicle mass matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Usage</dt>
+<dd class="field-odd"><p>inverse_veh_mass_matrix = GetInverseVehicleMassMatrix(parameters)</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>parameters</strong> – parameters of the vehicule as inertia matrix, mass ,added water,
+position of gravity center, …</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>inverse_veh_mass_matrix - inverse of the vehicle mass matrix (6x6)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="noise.html" class="btn btn-neutral float-right" title="Noise" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="inputs.html" class="btn btn-neutral float-left" title="Inputs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, ECA ROBOTICS. (DHAISNE Aurelien &lt;dhaisne.a@ecagroup.com&gt;).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

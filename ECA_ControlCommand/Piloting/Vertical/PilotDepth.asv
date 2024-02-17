@@ -1,0 +1,199 @@
+function out = PilotDepth(in, memory, parameters)
+% Depth piloting
+
+
+coder.extrinsic('lqrd');
+
+%auv_param = loadjson('Conf/AUVParameters.json');
+
+
+
+%{
+CYuv = auv_param.Hydrodynamic.CYuv;
+CYur = auv_param.Hydrodynamic.CYur;
+CZuw = auv_param.Hydrodynamic.CZuw;
+CZuq = auv_param.Hydrodynamic.CZuq;
+CMuw = auv_param.Hydrodynamic.CMuw;
+CMuq = auv_param.Hydrodynamic.CMuq;
+CNuv = auv_param.Hydrodynamic.CNuv;
+CNur = auv_param.Hydrodynamic.CNur;
+CZ0 = auv_param.Hydrodynamic.CZ0;
+CM0 = auv_param.Hydrodynamic.CM0;
+
+Sref = auv_param.Mecanic.surface_reference;
+Lref = auv_param.Mecanic.length_reference;
+m = auv_param.Mecanic.mass;
+rho = auv_param.Environment.Rho;
+
+zg = auv_param.Mecanic.center_of_gravity_veh_ref(3);
+zv = auv_param.Mecanic.center_of_buoyancy_veh_ref(3);
+volume = auv_param.Mecanic.volume;
+%}
+
+% Parameters of the AUV
+
+CYuv = -3.789805515344688;
+CYur = 1.945048820453736;
+CZuw = -3.158171262880660;
+CZuq = -1.939351431208791;
+CMuw = 0.978235318365837;
+CMuq = -0.890840404845499;
+CNuv = -1.076058850202421;
+CNur = -0.801756364360949;
+CZ0 = -0.010000000000000;
+CM0 = 0;
+CZ = -0.41;
+CM = -0.17;
+
+Sref = 0.385;
+Lref = 5;
+m = 1005.275;
+rho = 1026;
+
+zg = 3e-2;
+zv = 0;
+volume = 0.98;
+
+
+u0 = in.u_ms;
+Ts = in.delta_time_s;
+q = in.q_rads;
+w = in.w_ms;
+
+%%%%%%%%%%%%%%%%%
+W = m * 9.81;
+B = volume * rho * 9.81;
+
+m_11t = m + 68.6;
+m_33t = m + 1845.9;
+m_55t = 4173.5 + 3388.76;
+m_35 = - m * 0;
+m_13 = 0; 
+m_15 = 0;
+
+Det_M = m_11t * m_33t * m_55t - m_11t * m_35^2 - m_13^2 * m_55t + 2 * m_13 * m_15 * m_35 - m_15^2 * m_33t;
+Det_11 = (m_33t * m_55t - m_35^2) / Det_M;
+Det_33 = (m_11t * m_55t - m_15^2) / Det_M;
+Det_55 = (m_11t * m_33t - m_13^2) / Det_M;
+
+
+% Calculating equilibrium point
+alpha_1 = Det_33 * 0.5 * rho * Sref * CZ * u0 * abs(u0);
+alpha_3 = Det_33 * 0.5 * rho * Sref * CZ0 * abs(u0) * u0;
+alpha_4 = Det_33  * 0.5 * rho * Sref * CZuw * u0;
+alpha_5 = Det_33 * (W - B);
+
+beta_1 = Det_55 * 0.5 * rho * Sref * Lref * CM * u0 * abs(u0);
+beta_2 = Det_55 * 0.5 * rho * Sref * CMuw * Lref * u0;
+beta_4 = Det_55 * 0.5 * rho * Sref * Lref * CM0 * abs(u0) * u0;
+beta_6 = - Det_55 * (zg * W - zv * B);
+
+
+theta_0 = (-alpha_1 * beta_4 + alpha_3 * beta_1 + alpha_5 * beta_1) / (alpha_1 * beta_2 * u0 + alpha_1 * beta_6 - alpha_4 * beta_1 * u0);
+BAR_0 = (-beta_2 * u0 * theta_0 - beta_4 - beta_6 * theta_0) / beta_1; 
+
+% Calculating A and B matrices
+
+A_11 = Det_55 * (-m * zg * w + 0.5 * rho * Sref * Lref^2 * CMuq * u0);
+A_12 = Det_55 * (-m * zg * q + 0.5 * rho * Sref * CMuw * Lref * u0);
+A_13 = 0;
+A_14 = - Det_55 * (zg * W - zv * B) * cos(theta_0);
+A_15 = 0;
+
+A_21 = Det_33 * (2 * q * m * zg + m * u0 + 0.5 * rho * Sref * CZuq * Lref * u0);
+A_22 = Det_33 * 0.5 * rho * Sref * CZuw * u0;
+A_23 = 0;
+A_24 = - Det_33 * (W - B) * sin(theta_0);
+A_25 = 0;
+
+A_31 = 0;
+A_32 = cos(theta_0);
+A_33 = 0;
+A_34 = - u0 * cos(theta_0) - w * sin(theta_0);
+A_35 = 0;
+
+A_41 = 1;
+A_42 = 0;
+A_43 = 0;
+A_44 = 0;
+A_45 = 0;
+
+A_51 = 0;
+A_52 = 0;
+A_53 = 1;
+A_54 = 0;
+A_55 = 0;
+
+
+B_11 = Det_55 * 0.5 * rho * Sref * Lref * CM * u0 * abs(u0);
+B_21 = Det_33 * 0.5 * rho * Sref  * CZ * u0 * abs(u0);
+B_31 = 0;
+B_41 = 0;
+B_51 = 0;
+
+% State vector:
+%       [q          ]
+%       [w          ]
+% X =   [z          ]
+%       [theta      ]
+%       [integral(z)]
+
+A = [...
+    A_11 A_12 A_13 A_14 A_15;...
+    A_21 A_22 A_23 A_24 A_25;...
+    A_31 A_32 A_33 A_34 A_35;...
+    A_41 A_42 A_43 A_44 A_45;...
+    A_51 A_52 A_53 A_54 A_55...
+    ];
+
+B = [...
+    B_11;...
+    B_21;...
+    B_31;...
+    B_41;...
+    B_51...
+    ];
+
+% Calculating Kd matrix
+
+Q = [
+    1 0 0 0 0;...
+    0 1 0 0 0;...
+    0 0 1 0 0;...
+    0 0 0 1 0;...
+    0 0 0 0 1
+    ];
+
+R = 1;
+
+Kd = zeros(1, 5);
+Kd = lqrd(A,B,Q,R,Ts);
+
+
+% for state vector:
+% w
+% q
+% z
+% theta
+% integral
+
+%Kd = [-0.1181   -0.0927    0.0018   -0.1110    0.0000];
+%theta_0 = 0.0069;
+%BAR_0 = -0.0837;
+
+%% Compute deltas
+delta_q =  - in.q_rads;
+
+delta_w =  - in.w_ms;
+
+delta_z = in.z_m - in.zc_m;
+delta_z = EcaF_Saturate(delta_z,-parameters.delta_z_sat_m,parameters.delta_z_sat_m);
+
+delta_theta = DiffAngle(in.theta_rad, theta_0);
+
+BARc_rad = BAR_0 + delta_q * Kd(1) + delta_w * Kd(2) + delta_z * Kd(3) + delta_theta * Kd(4) + memory.int_z * Kd(5);
+
+%% Output saturation
+out.BARc = EcaF_Saturate(BARc_rad,parameters.BAR_sat_rad(1),parameters.BAR_sat_rad(2));
+
+end
