@@ -89,14 +89,14 @@ $$X =
     \int{z}
 \end{bmatrix}$$
 
-$A =  \begin{bmatrix}
+$$A =  \begin{bmatrix}
     \frac{\partial{\dot{q}}}{\partial{q}} & \frac{\partial{\dot{q}}}{\partial{w}} & \frac{\partial{\dot{q}}}{\partial{z}} &  \frac{\partial{\dot{q}}}{\partial{\theta}} & \frac{\partial{\dot{q}}}{\partial{\int{z}}}\\
     \frac{\partial{\dot{w}}}{\partial{q}} & \frac{\partial{\dot{w}}}{\partial{w}} & \frac{\partial{\dot{w}}}{\partial{z}} &  \frac{\partial{\dot{w}}}{\partial{\theta}} & \frac{\partial{\dot{w}}}{\partial{\int{z}}}\\
     \frac{\partial{\dot{z}}}{\partial{q}} & \frac{\partial{\dot{z}}}{\partial{w}} & \frac{\partial{\dot{z}}}{\partial{z}} &  \frac{\partial{\dot{z}}}{\partial{\theta}} & \frac{\partial{\dot{z}}}{\partial{\int{z}}}\\
     \frac{\partial{\dot{\theta}}}{\partial{q}} & \frac{\partial{\dot{\theta}}}{\partial{w}} & \frac{\partial{\dot{\theta}}}{\partial{z}} &  \frac{\partial{\dot{\theta}}}{\partial{\theta}} & \frac{\partial{\dot{\theta}}}{\partial{\int{z}}}\\
     
 \frac{\partial{\int{\dot{z}}}}{\partial{q}} & \frac{\partial{\int{\dot{z}}}}{\partial{w}} & \frac{\partial{\int{\dot{z}}}}{\partial{z}} &  \frac{\partial{\int{\dot{z}}}}{\partial{\theta}} & \frac{\partial{\int{\dot{z}}}}{\partial{\int{z}}}\\
-\end{bmatrix}$
+\end{bmatrix}$$
 
 $$B = 
 \begin{bmatrix}
