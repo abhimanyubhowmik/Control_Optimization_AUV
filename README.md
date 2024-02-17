@@ -29,7 +29,7 @@ Prerequisites:
   Matlab R2021b +
   Control System Toolbox
   ```
-* Cloning the Project Repository : ```git@github.com:abhimanyubhowmik/Control_Optimization_AUV-ECA_Group.git```
+* Cloning the Project Repository : ```git@github.com:abhimanyubhowmik/Control_Optimization_AUV.git```
 * Reference Documents:
   ```
   Doc/AUV Model.pdf
