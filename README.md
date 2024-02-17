@@ -10,7 +10,7 @@ The objective of theis project is to improve the vertical stability of the AUV, 
 
 Group Members:
 
-* [Abhimnayu Bhowmik](https://github.com/abhimanyubhowmik)
+* [Abhimanyu Bhowmik](https://github.com/abhimanyubhowmik)
 * [Madhushree Sannigrahi](https://github.com/Madhushree2000)
 * [Chashnikov Sergei](https://www.linkedin.com/in/schashni/)
 * [Akshat Sinha](https://www.linkedin.com/in/akshatsinha14/)
