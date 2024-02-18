@@ -1,5 +1,8 @@
-# AUV Control Optimisation using LQR
+<h1 align="center">AUV Control Optimisation using LQR</h1>
 
+<div align="center">
+<img src = "Images/ECA_Logo.png" width="100%">
+</div>
 
 The objective of theis project is to improve the vertical stability of the AUV, we propose using a Linear Quadratic Regulator(LQR) controller instead of the existing Proportional-Integral-Derivative(PID) controller. Our specific objectives to implement the LQR controller are:
 
@@ -7,6 +10,8 @@ The objective of theis project is to improve the vertical stability of the AUV, 
 2. Linearize the simplified nonlinear AUV model.
 3. Select and implement a motion control system.
 4. Refine the LQR’s tuning for vertical commands.
+
+
 
 Group Members:
 
